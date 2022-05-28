@@ -15,7 +15,7 @@ describe("ListAllUsersUseCase", () => {
 
   it("should be able to list all users", () => {
     const user1 = usersRepository.create({
-      name: "Danilo Vieira",
+      name: "Fulano Beltranino",
       email: "danilo@rocketseat.com",
     });
 
@@ -38,7 +38,7 @@ describe("ListAllUsersUseCase", () => {
     expect(users).toEqual(
       expect.arrayContaining([
         expect.objectContaining({
-          name: "Danilo Vieira",
+          name: "Fulano Beltranino",
           email: "danilo@rocketseat.com",
         }),
         user2,

@@ -12,7 +12,7 @@ describe("CreateUserUseCase", () => {
 
   it("should be able to create new users", () => {
     const user = createUserUseCase.execute({
-      name: "Danilo Vieira",
+      name: "Fulano Beltranino",
       email: "danilo@rocketseat.com",
     });
 
@@ -22,7 +22,7 @@ describe("CreateUserUseCase", () => {
   it("should not be able to create new users when email is already taken", () => {
     expect(() => {
       createUserUseCase.execute({
-        name: "Danilo Vieira",
+        name: "Fulano Beltranino",
         email: "danilo@rocketseat.com",
       });
     }).toThrow();

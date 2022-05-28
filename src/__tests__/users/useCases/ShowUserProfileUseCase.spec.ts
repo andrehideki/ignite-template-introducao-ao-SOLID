@@ -14,7 +14,7 @@ describe("ShowUserProfileUseCase", () => {
 
   it("should be able to get user profile by ID", () => {
     const user = usersRepository.create({
-      name: "Danilo Vieira",
+      name: "Fulano Beltranino",
       email: "danilo@rocketseat.com",
     });
 
