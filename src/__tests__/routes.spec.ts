@@ -9,14 +9,14 @@ describe("[POST] /users", () => {
     const response = await request(app)
       .post("/users")
       .send({
-        name: "John Doe",
-        email: "john.doe@example.com",
+        name: "Fulano Beltranino",
+        email: "fulano.beltranino@mail.com",
       })
       .expect(201);
 
     expect(response.body).toMatchObject({
-      name: "John Doe",
-      email: "john.doe@example.com",
+      name: "Fulano Beltranino",
+      email: "fulano.beltranino@mail.com",
       admin: false,
     });
   });
@@ -25,8 +25,8 @@ describe("[POST] /users", () => {
     const response = await request(app)
       .post("/users")
       .send({
-        name: "John Doe",
-        email: "john.doe@example.com",
+        name: "Fulano Beltranino",
+        email: "fulano.beltranino@mail.com",
       })
       .expect(400);
 
