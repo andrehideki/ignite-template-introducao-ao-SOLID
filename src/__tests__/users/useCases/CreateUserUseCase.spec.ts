@@ -13,7 +13,7 @@ describe("CreateUserUseCase", () => {
   it("should be able to create new users", () => {
     const user = createUserUseCase.execute({
       name: "Fulano Beltranino",
-      email: "danilo@rocketseat.com",
+      email: "fulano.beltranino@mail.com",
     });
 
     expect(usersRepository.list()).toStrictEqual([user]);
@@ -23,7 +23,7 @@ describe("CreateUserUseCase", () => {
     expect(() => {
       createUserUseCase.execute({
         name: "Fulano Beltranino",
-        email: "danilo@rocketseat.com",
+        email: "fulano.beltranino@mail.com",
       });
     }).toThrow();
   });

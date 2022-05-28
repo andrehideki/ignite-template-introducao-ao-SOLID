@@ -28,7 +28,7 @@ describe("UsersRepository", () => {
   it("should be able to list all users", () => {
     const user = usersRepository.create({
       name: "Fulano Beltranino",
-      email: "danilo@rocketseat.com",
+      email: "fulano.beltranino@mail.com",
     });
 
     const users = usersRepository.list();
