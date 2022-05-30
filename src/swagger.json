@@ -97,6 +97,46 @@
                     "400": { "description": "Email is already taken" }
                 }
             }
+        },
+        "/users/{user_id}/admin": {
+            "patch": {
+                "tags": ["users"],
+                "summary": "Turn user admin",
+                "operationId": "turnUserAdmin" ,
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "path",
+                        "type": "string",
+                        "required": true,
+                        "description": "Id of user candidater to turn admin"
+                    }
+                ],
+                "responses": {
+                    "200": { 
+                        "description": "Success: User turned admin" ,
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": { "type": "string" },
+                                        "name": { "type": "string" },
+                                        "admin": { "type": "boolean" },
+                                        "email": { "type": "string" },
+                                        "created_at": { "type": "string" },
+                                        "updated_at": { "type": "string" }
+                                    }   
+                                }
+                            }
+                        }
+                    },
+                    "400": { "description": "Not allowed" },
+                    "404": { "description": "User not found" }
+                }
+            }
         }
     }
 }
