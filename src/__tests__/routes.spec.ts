@@ -22,14 +22,17 @@ describe("[POST] /users", () => {
   });
 
   it("should not be able to create new users when email is already taken", async () => {
+    const user = {
+      name: "Fulano Beltranino",
+      email: "fulano.beltranino@mail.com",
+    };
+    await request(app)
+      .post("/users")
+      .send({ name: user.name, email: user.email });
     const response = await request(app)
       .post("/users")
-      .send({
-        name: "Fulano Beltranino",
-        email: "fulano.beltranino@mail.com",
-      })
+      .send({ name: user.name, email: user.email })
       .expect(400);
-
     expect(response.body.error).toBeTruthy();
   });
 });

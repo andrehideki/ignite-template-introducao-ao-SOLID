@@ -1,3 +1,4 @@
+import { NotFoundError } from "../../errors/notFoundError";
 import { User } from "../../model/User";
 import { IUsersRepository } from "../../repositories/IUsersRepository";
 
@@ -10,7 +11,7 @@ class ShowUserProfileUseCase {
 
   execute({ user_id }: IRequest): User {
     const user = this.usersRepository.findById(user_id);
-    if (!user) throw new Error("User");
+    if (!user) throw new NotFoundError("User");
     return user;
   }
 }
