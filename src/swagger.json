@@ -98,6 +98,46 @@
                 }
             }
         },
+        "/users/{user_id}/": {
+            "get": {
+                "tags": ["users"],
+                "summary": "Get user",
+                "description": "Get information about user",
+                "operationId": "getUser" ,
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "path",
+                        "type": "string",
+                        "required": true,
+                        "description": "Id of user"
+                    }
+                ],
+                "responses": {
+                    "200": { 
+                        "description": "Success: User information" ,
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": { "type": "string" },
+                                        "name": { "type": "string" },
+                                        "admin": { "type": "boolean" },
+                                        "email": { "type": "string" },
+                                        "created_at": { "type": "string" },
+                                        "updated_at": { "type": "string" }
+                                    }   
+                                }
+                            }
+                        }
+                    },
+                    "404": { "description": "User not found" }
+                }
+            }
+        },
         "/users/{user_id}/admin": {
             "patch": {
                 "tags": ["users"],
