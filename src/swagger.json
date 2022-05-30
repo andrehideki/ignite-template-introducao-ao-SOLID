@@ -46,6 +46,56 @@
                     },
                     "400": { "description": "User not found or Not allowed" }
                 }
+            },
+            "post": {
+                "tags": ["users"],
+                "summary": "Create user",
+                "description": "Create a new user",
+                "operationId": "createUser" ,
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "requestBody": {
+                    "description": "Basic information for create user",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "name": "string",
+                                        "email": "string"
+                                    }
+                                },
+                                "example": {
+                                    "name": "first last",
+                                    "email": "first.last@mail.com"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": { 
+                        "description": "Success: User created" ,
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": { "type": "string" },
+                                        "name": { "type": "string" },
+                                        "admin": { "type": "boolean" },
+                                        "email": { "type": "string" },
+                                        "created_at": { "type": "string" },
+                                        "updated_at": { "type": "string" }
+                                    }  
+                                } 
+                            }
+                        }
+                    },
+                    "400": { "description": "Email is already taken" }
+                }
             }
         }
     }
